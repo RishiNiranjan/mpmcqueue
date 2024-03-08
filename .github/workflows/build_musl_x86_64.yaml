@@ -1,6 +1,11 @@
-name: "build and push"
+name: "Build Lib"
 on: 
   workflow_dispatch:
+      inputs:
+        TargetPlatformName:
+          description: 'Target platform'
+          type: string
+          required: true
   pull_request:
     branches:
       - releases/**
