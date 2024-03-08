@@ -1,4 +1,4 @@
-name: "Build and push 2"
+name: "Build Lib"
 on: 
   workflow_dispatch:
       inputs:
