@@ -1,4 +1,4 @@
-name: "Build and push 2"
+name: "build and push"
 on: 
   workflow_dispatch:
   pull_request:
