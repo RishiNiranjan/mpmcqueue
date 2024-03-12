@@ -22,8 +22,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repo
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        submodules: recursive
+        token: ${{ steps.secrets.outputs.ACTIONS_TOKEN }}
 
       - name: Create Build directory
         run: mkdir build
