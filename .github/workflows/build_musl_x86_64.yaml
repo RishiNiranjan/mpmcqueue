@@ -53,11 +53,12 @@ jobs:
  
       - name: Extract version
         run: |
-          WRT_SDK_VERSION_MAJOR=$(grep -oP 'set\(WRT_SDK_VERSION_MAJOR "\K[^"]+' CMakeLists.txt)
-          WRT_SDK_VERSION_MINOR=$(grep -oP 'set\(WRT_SDK_VERSION_MINOR "\K[^"]+' CMakeLists.txt)
-          WRT_SDK_VERSION_PATCH=$(grep -oP 'set\(WRT_SDK_VERSION_PATCH "\K[^"]+' CMakeLists.txt)
-          WRT_SDK_VERSION_PRE_RELEASE=$(grep -oP 'set\(WRT_SDK_VERSION_PRE_RELEASE "\K[^"]+' CMakeLists.txt)
-          # echo "VERSION=${WRT_SDK_VERSION_MAJOR}.${WRT_SDK_VERSION_MINOR}.${WRT_SDK_VERSION_PATCH}${WRT_SDK_VERSION_PRE_RELEASE}" >> $GITHUB_ENV
+          # WRT_SDK_VERSION_MAJOR=$(grep -oP 'set\(WRT_SDK_VERSION_MAJOR "\K[^"]+' CMakeLists.txt)
+          # WRT_SDK_VERSION_MINOR=$(grep -oP 'set\(WRT_SDK_VERSION_MINOR "\K[^"]+' CMakeLists.txt)
+          # WRT_SDK_VERSION_PATCH=$(grep -oP 'set\(WRT_SDK_VERSION_PATCH "\K[^"]+' CMakeLists.txt)
+          # WRT_SDK_VERSION_PRE_RELEASE=$(grep -oP 'set\(WRT_SDK_VERSION_PRE_RELEASE "\K[^"]+' CMakeLists.txt)
+          VERSION=$(grep -oP 'set\(VERSION "\K[^"]+' CMakeLists.txt)
+          echo "VERSION=${VERSION}" >> $GITHUB_ENV
 
       - name: Print version
         run: echo "Version is $VERSION"
