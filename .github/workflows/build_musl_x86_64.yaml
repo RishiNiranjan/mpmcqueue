@@ -29,11 +29,11 @@ jobs:
         id: prep
         run: |
           VERSION=dev
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
-          fi
+          # if [[ $GITHUB_REF == refs/tags/* ]]; then
+          #   VERSION=${GITHUB_REF#refs/tags/}
+          # else
+          #   VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
+          # fi
           echo ::set-output name=version::${VERSION}
 
       - name: Create Build directory
