@@ -133,7 +133,7 @@ References:
 - *Paul E. McKenney*. 2010. [Memory Barriers: a Hardware View for Software Hackers](http://irl.cs.ucla.edu/~yingdi/web/paperreading/whymb.2010.06.07c.pdf).
 - *Dmitry Vyukov*. 2014. [Bounded MPMC queue](http://www.1024cores.net/home/lock-free-algorithms/queues/bounded-mpmc-queue).
 
-## Testing
+## Testidng
 
 Testing concurrency algorithms is hard. I'm using two approaches to test the
 implementation:
