@@ -31,7 +31,7 @@ jobs:
       - name: Prepare refs
         id: prep
         run: |
-          if [[ -n ${{ github.event.inputs.repositoryREF }} ]]; then
+          if [[ ${{ github.event.inputs.repositoryREF }} == "" ]]; then
             VERSION=${{ github.event.inputs.repositoryREF }}
           elif [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
