@@ -28,24 +28,23 @@ jobs:
           fetch-depth: 0
           submodules: recursive
 
+      - name: Prepare refs
+        id: prep
+        run: |
+          VERSION=dev
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          else
+            VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
+          fi
+          echo ::set-output name=version::${VERSION}
+
       - name: Create Build directory
         run: mkdir build
 
       - name: Run CMake
         run: cmake -S . -B build
       
-      - name: Prepare refs
-        id: prep
-        run: |
-          VERSION=dev
-          git describe --long --tags --abbrev=10 --match "v*"
-          # if [[ $GITHUB_REF == refs/tags/* ]]; then
-          #   VERSION=${GITHUB_REF#refs/tags/}
-          # else
-          #   VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
-          # fi
-          echo ::set-output name=version::${VERSION}
-
       - name: Build with CMake
         run: cmake --build build
 
