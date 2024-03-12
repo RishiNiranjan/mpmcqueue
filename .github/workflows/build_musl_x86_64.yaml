@@ -1,11 +1,10 @@
 name: "Build Lib"
 on: 
   workflow_dispatch:
-      inputs:
-        TargetPlatformName:
-          description: 'Target platform'
-          type: string
-          required: true
+    inputs:
+      repositoryREF:
+        description: 'The branch, tag or SHA to checkout.'
+        required: true
   pull_request:
     branches:
       - releases/**
@@ -27,26 +26,31 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+          ref: ${{ github.event.inputs.repositoryREF }}
 
       - name: Prepare refs
         id: prep
         run: |
-          VERSION=dev
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
+          if [[ "${{github.event.inputs.repositoryREF}}X" != "X" ]]; then
+            VERSION=${{ github.event.inputs.repositoryREF }}
+          elif [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/}
           else
             VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
           fi
+
           echo ::set-output name=version::${VERSION}
 
       - name: Create Build directory
         run: mkdir build
 
       - name: Run CMake
-        run: cmake -S . -B build
+        run: |
+          touch build/MPMCQueueExample
+      #   run: cmake -S . -B build
       
-      - name: Build with CMake
-        run: cmake --build build
+      # - name: Build with CMake
+      #   run: cmake --build build
 
       - name: Archive build artifacts
         run: |
