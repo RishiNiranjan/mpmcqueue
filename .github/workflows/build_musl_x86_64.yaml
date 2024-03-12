@@ -22,6 +22,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Prepare refs
         id: prep
         run: |
@@ -32,9 +35,6 @@ jobs:
             VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
           fi
           echo ::set-output name=version::${VERSION}
-
-      - name: Checkout code
-        uses: actions/checkout@v2
 
       - name: Create Build directory
         run: mkdir build
