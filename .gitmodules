@@ -1,0 +1,3 @@
+[submodule "config-cxx"]
+	path = config-cxx
+	url = git@github.com:cieslarmichal/config-cxx.git
