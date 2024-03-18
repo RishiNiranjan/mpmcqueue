@@ -20,7 +20,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: gcr.io/af-image/hydra-sdk-wrt-libc
+      image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
 
     steps:
       - name: Checkout repo
