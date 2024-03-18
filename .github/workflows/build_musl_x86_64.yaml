@@ -38,7 +38,7 @@ jobs:
       - name: Build with CMake
         run: cmake --build build
 
-      # - name: Archive build artifacts
+      # - name: Arcchive build artifacts
       #   run: |
       #     zip -r output.zip build/MPMCQueueExample
       #   shell: bash
