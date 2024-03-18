@@ -30,12 +30,10 @@ jobs:
         run: mkdir build
 
       - name: Run CMake
-        run: |
-          touch build/MPMCQueueExample
-      #   run: cmake -S . -B build
-      
-      # - name: Build with CMake
-      #   run: cmake --build build
+        run: cmake -S . -B build
+       
+      - name: Build with CMake
+        run: cmake --build build
 
       - name: Archive build artifacts
         run: |
