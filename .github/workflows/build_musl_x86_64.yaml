@@ -9,16 +9,18 @@ on:
   #   branches:
   #     - releases/**
   #     - master
-  # push:
-  #   tags:
-  #     - v[0-9]+.[0-9]+.[0-9]+
-  #   branches:
-  #     - releases/**
-  #     - master
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+    branches:
+      - releases/**
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: gcr.io/af-image/hydra-sdk-wrt-libc
 
     steps:
       - name: Checkout repo
