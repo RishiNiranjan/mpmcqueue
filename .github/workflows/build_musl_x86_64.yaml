@@ -25,23 +25,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: recursive
-          ref: ${{ github.event.inputs.repositoryREF }}
-
-      - name: Prepare refs
-        id: prep
-        run: |
-          if [[ "${{github.event.inputs.repositoryREF}}X" != "X" ]]; then
-            VERSION=${{ github.event.inputs.repositoryREF }}
-          elif [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
-          else
-            VERSION=$(git describe --long --tags --abbrev=10 --match "v*")
-          fi
-
-          echo ::set-output name=version::${VERSION}
 
       - name: Create Build directory
         run: mkdir build
