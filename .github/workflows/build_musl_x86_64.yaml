@@ -19,8 +19,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      id-token: write
+      contents: read
+      security-events: write
     container:
       image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
+      options: -u root
 
     steps:
       - name: Checkout repo
@@ -37,11 +43,6 @@ jobs:
        
       - name: Build with CMake
         run: cmake --build build
-
-      # - name: Arcchive build artifacts
-      #   run: |
-      #     zip -r output.zip build/MPMCQueueExample
-      #   shell: bash
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
