@@ -5,16 +5,16 @@ on:
       repositoryREF:
         description: 'The branch, tag or SHA to checkout.'
         required: true
-  pull_request:
-    branches:
-      - releases/**
-      - master
-  push:
-    tags:
-      - v[0-9]+.[0-9]+.[0-9]+
-    branches:
-      - releases/**
-      - master
+  # pull_request:
+  #   branches:
+  #     - releases/**
+  #     - master
+  # push:
+  #   tags:
+  #     - v[0-9]+.[0-9]+.[0-9]+
+  #   branches:
+  #     - releases/**
+  #     - master
 
 jobs:
   build:
