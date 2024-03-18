@@ -26,7 +26,6 @@ jobs:
       security-events: write
     container:
       image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
-      options: -u root
 
     steps:
       - name: Checkout repo
