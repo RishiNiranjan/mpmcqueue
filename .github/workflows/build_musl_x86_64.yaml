@@ -15,11 +15,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      id-token: write
-      contents: read
-      security-events: write
     container:
       image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
 
