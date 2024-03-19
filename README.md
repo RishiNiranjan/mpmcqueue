@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rigtorp/MPMCQueue/master/LICENSE)
 
 A bounded multi-producer multi-consumer concurrent queue written in C++11.
-
+ 
 It's battle hardened and used daily in production:
 - In the [Frostbite game engine](https://www.ea.com/frostbite) developed by
   [Electronic Arts](https://www.ea.com/) for the following games:
