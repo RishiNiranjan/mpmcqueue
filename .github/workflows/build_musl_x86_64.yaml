@@ -34,8 +34,9 @@ jobs:
           elif [[ $GITHUB_REF == refs/heads/* ]]; then
             VERSION="sha-${GITHUB_SHA::8}"
           fi
-  
+
           echo ::set-output name=version::${VERSION}
+        shell: bash
 
       - name: Create Build directory
         run: mkdir build
