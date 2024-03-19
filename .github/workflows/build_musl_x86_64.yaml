@@ -15,8 +15,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
+    # container:
+    #   image: ghcr.io/rishiniranjan/mpmcqueue/imagename:latest
 
     steps:
       - name: Checkout repo
