@@ -11,6 +11,10 @@ on:
     branches:
       - releases/**
       - master
+  pull_request:
+    branches:
+      - releases/**
+      - master
 
 jobs:
   build:
