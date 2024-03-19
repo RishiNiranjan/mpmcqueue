@@ -24,6 +24,18 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
+      
+      - name: Prepare refs
+        id: prep
+        run: |
+          VERSION=dev
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/}
+          elif [[ $GITHUB_REF == refs/heads/* ]]; then
+            VERSION="sha-${GITHUB_SHA::8}"
+          fi
+  
+          echo ::set-output name=version::${VERSION}
 
       - name: Create Build directory
         run: mkdir build
