@@ -52,7 +52,7 @@ t2.join();
 - `void emplace(Args &&... args);`
 
   Enqueue an item using inplace construction. Blocks if queue is full.
-  
+   d
 - `bool try_emplace(Args &&... args);`
 
   Try to enqueue an item using inplace construction. Returns `true` on
