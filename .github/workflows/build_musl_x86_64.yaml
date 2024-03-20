@@ -37,6 +37,8 @@ jobs:
             VERSION=${GITHUB_REF#refs/tags/}
           elif [[ $GITHUB_REF == refs/heads/* ]]; then
             VERSION="sha-${GITHUB_SHA::8}"
+          elif [[ $GITHUB_REF == refs/pull/* ]]; then
+            VERSION=${GITHUB_HEAD_REF#refs/heads/}
           fi
 
           echo ::set-output name=version::${VERSION}
