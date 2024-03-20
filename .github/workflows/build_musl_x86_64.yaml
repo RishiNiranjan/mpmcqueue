@@ -31,6 +31,7 @@ jobs:
       
       - name: Prepare refs
         id: prep
+        shell: bash
         run: |
           VERSION=${{ github.event.inputs.repositoryREF }}
           if [[ $GITHUB_REF == refs/tags/* ]]; then
@@ -66,7 +67,7 @@ jobs:
           fi
 
           echo ::set-output name=version::${VERSION}
-        shell: bash
+        
 
       - name: Create Build directory
         run: mkdir build
